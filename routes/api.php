@@ -20,5 +20,5 @@ Route::post('/token/retrieve', [TokenController::class, 'retrieve']);
 
 Route::post('/authenticate', [AuthController::class, 'authenticate']);
 
-//Route::get('/test', fn() => 123)->middleware('token');
+Route::get('/test', fn() => 123);
 
