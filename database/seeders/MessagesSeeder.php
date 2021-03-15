@@ -2,17 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Messages;
 use Illuminate\Database\Seeder;
 
-class MessagesSeeder extends Seeder
-{
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        //
+class MessagesSeeder extends Seeder {
+    public function run(): void {
+        Messages::factory(5)->create();
     }
 }
