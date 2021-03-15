@@ -6,22 +6,10 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class UserFactory extends Factory
-{
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
+class UserFactory extends Factory {
     protected $model = User::class;
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
-    public function definition()
-    {
+    public function definition(): array {
         return [
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
@@ -31,13 +19,8 @@ class UserFactory extends Factory
         ];
     }
 
-    /**
-     * Indicate that the model's email address should be unverified.
-     *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
-     */
-    public function unverified()
-    {
+    public function unverified(): Factory {
+        // Indicate that the model's email address should be unverified.
         return $this->state(function (array $attributes) {
             return [
                 'email_verified_at' => null,

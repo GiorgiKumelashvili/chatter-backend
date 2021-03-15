@@ -4,12 +4,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Carbon\Carbon;
-use GenTux\Jwt\JwtToken;
 use Google_Client;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cookie;
 
 class AuthController extends Controller {
     private const GOOGLE_CLIENT_ID = 'GOOGLE_CLIENT_ID';

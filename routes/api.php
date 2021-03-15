@@ -10,17 +10,14 @@ use Illuminate\Support\Facades\Route;
  * @jwt https://packalyst.com/packages/package/generationtux/jwt-artisan#creating-tokens
  */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::post('/token/create', [TokenController::class, 'create']);
 Route::post('/token/retrieve', [TokenController::class, 'retrieve']);
 Route::post('/authenticate', [AuthController::class, 'authenticate']);
 
-
-Route::group(['middleware'=> 'jwt'], function() {
-    Route::post('/test', fn() => 123);
+// Main
+Route::group(['middleware' => 'jwt'], function () {
+    Route::post('/messages', [\App\Http\Controllers\MessagesController::class, 'index']);
+    Route::post('/messages/create', [\App\Http\Controllers\MessagesController::class, 'create']);
 });
 
 

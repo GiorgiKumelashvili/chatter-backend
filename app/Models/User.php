@@ -5,11 +5,14 @@ namespace App\Models;
 use App\Http\Controllers\TokenController;
 use Carbon\Carbon;
 use GenTux\Jwt\JwtPayloadInterface;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * @property mixed id
+ * @property mixed email
+ */
 class User extends Authenticatable implements JwtPayloadInterface {
     use HasFactory, Notifiable;
 
@@ -32,7 +35,6 @@ class User extends Authenticatable implements JwtPayloadInterface {
         return [
             'sub' => $this->id,
             'exp' => Carbon::now()->addMonths(TokenController::TIME)->timestamp,
-            //'exp' => time() + 7200,
             'context' => [
                 'email' => $this->email
             ]
