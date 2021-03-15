@@ -9,10 +9,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-/**
- * @property mixed id
- * @property mixed email
- */
 class User extends Authenticatable implements JwtPayloadInterface {
     use HasFactory, Notifiable;
 
