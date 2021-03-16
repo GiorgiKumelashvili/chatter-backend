@@ -13,6 +13,12 @@ class Messages extends Model {
 
     protected $guarded = [];
 
+    private static function sendBack($message): JsonResponse {
+        return response()->json([
+            'message' => $message
+        ]);
+    }
+
     public static function createMessage(array $data): ?JsonResponse {
         try {
             // create message
@@ -21,18 +27,13 @@ class Messages extends Model {
         }
         catch (QueryException $queryException) {
             if ($queryException->getCode() === '23000') {
-                return response()->json([
-                    'message' => 'query exception probably problem with user_id'
-                ]);
+                return self::sendBack('query exception probably problem with user_id');
             }
 
-            return $queryException->errorInfo;
+            return self::sendBack($queryException->errorInfo);
         }
         catch (Exception $exception) {
-            return response()->json([
-                'message' => $exception->getMessage()
-            ]);
+            return self::sendBack($exception->getMessage());
         }
-
     }
 }
