@@ -40,7 +40,7 @@ return [
                 'encrypted' => true,
                 'host' => env('PUSHER_WEBSOCKETS_SERVER', '127.0.0.1'),
                 'port' => env('PUSHER_WEBSOCKETS_PORT', 6001),
-                'scheme' => 'http'
+                'scheme' => env('PUSHER_WEBSOCKETS_SCHEME', 'http'),
             ],
         ],
 
