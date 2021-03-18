@@ -16,6 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-
-Route::get('/sockets', \BeyondCode\LaravelWebSockets\Dashboard\Http\Controllers\ShowDashboard::class);

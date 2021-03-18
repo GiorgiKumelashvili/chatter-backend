@@ -18,5 +18,3 @@ Route::group(['middleware' => 'jwt'], function () {
     Route::post('/messages', [\App\Http\Controllers\MessagesController::class, 'index']);
     Route::post('/messages/create', [\App\Http\Controllers\MessagesController::class, 'create']);
 });
-
-
